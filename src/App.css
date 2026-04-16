@@ -1,14 +1,14 @@
 .drumButton {
   cursor: pointer;
   outline: none;
-  border: 4px solid #404e77;
+  border: 3px solid #404e77;
   /* box-shadow: 2px 1px 1px; */
   line-height: 2;
   font-weight: 900;
   border-radius: 10px;
   display: flex;
-  min-width: 50px;
-  min-height: 50px;
+  min-width: 40px;
+  min-height: 40px;
   text-align: center;
   margin: 1%;
   color: #da0463;
@@ -23,21 +23,32 @@
   }
 }
 
-#bassDrum {
-  background-image: url("./assets/images/bass-drum.svg");
-  background-size: contain;
+.switchButton {
+  cursor: pointer;
+  outline: none;
+  min-height: 30px;
+  min-width: 20px;
+  border: none;
+  border-radius: 4px;
+  &:active {
+    opacity: 0.7;
+    border: 3px solid #404e77;
+  }
 }
 
-#snareDrum {
-  background-image: url("./assets/images/snare.svg");
-  background-size: contain;
+.switchButton.on {
+  background-color: #535c77; 
+}
+
+.switchButton.off {
+  background-color: #e8e9e9; 
 }
 
 .drumMachine {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 5px;
-  max-width: 500px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -74,7 +85,7 @@
   font-size: 1rem;
 }
 
-.metronomeStartButton {
+.startButton {
   cursor: pointer;
   border: none;
   font-family: "Goldman", sans-serif;
@@ -86,4 +97,47 @@
   &:hover {
     opacity: 0.7;
   }
+}
+
+.drumMachine .startButton{
+  margin: 20px 0px 0px 20px;
+  display: flex;
+}
+
+/* --------- checkbox styling for switch "buttons" ---------- */
+
+input[type="checkbox"] {
+  /* Remove default styling */
+  appearance: none;
+  -webkit-appearance: none;
+  
+  /* Set custom dimensions and base style */
+  min-height: 30px;
+  min-width: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+}
+
+/* Create the checkmark using a pseudo-element */
+input[type="checkbox"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: white;
+  /* clip-path for checkmark shape */
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+/* Style when checked */
+input[type="checkbox"]:checked {
+  background-color: #da0463;
+  border-color: #da0463;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
 }
