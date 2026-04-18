@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import useSound from "use-sound";
-import hiHatSound from "../assets/sounds/hi-hat.wav";
+import hiHatSound from "../assets/sounds/hi-hat-2.mp3";
 
 const HiHatSwitch = forwardRef((props, ref) => {
   const [play] = useSound(hiHatSound);

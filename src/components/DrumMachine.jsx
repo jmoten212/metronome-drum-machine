@@ -9,13 +9,16 @@ function DrumMachine(props) {
   const hiHatRefs = useRef([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const isPlayingRef = useRef(false);
+  const timerRef = useRef(null);
   const TEMPO_MS = 250;
   const SEQUENCE_LENGTH = 16;
 
-  const playLoop = async () => {
-    if (!isPlayingRef.current) return;
-    
-    for (let index = 0; index < SEQUENCE_LENGTH; index += 1) {
+  const playLoop = () => {
+    let index = 0;
+
+    const step = () => {
+      if (!isPlayingRef.current) return;
+
       if (bassRefs.current[index]?.isOn) {
         bassRefs.current[index]?.play();
       }
@@ -25,20 +28,30 @@ function DrumMachine(props) {
       if (hiHatRefs.current[index]?.isOn) {
         hiHatRefs.current[index]?.play();
       }
-      await new Promise((resolve) => setTimeout(resolve, TEMPO_MS));
-    }
-    
-    if (isPlayingRef.current) {
-      playLoop();
-    }
+
+      index += 1;
+      if (index >= SEQUENCE_LENGTH) {
+        index = 0;
+      }
+
+      timerRef.current = setTimeout(step, TEMPO_MS);
+    };
+
+    step();
   };
 
   const togglePlay = () => {
-    isPlayingRef.current = !isPlayingRef.current;
-    setIsPlaying(isPlayingRef.current);
     if (isPlayingRef.current) {
-      playLoop();
+      isPlayingRef.current = false;
+      setIsPlaying(false);
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+      return;
     }
+
+    isPlayingRef.current = true;
+    setIsPlaying(true);
+    playLoop();
   };
 
   return (

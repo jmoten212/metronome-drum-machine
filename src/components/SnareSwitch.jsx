@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import useSound from "use-sound";
-import bassSound from "../assets/sounds/snare-2.mp3";
+import bassSound from "../assets/sounds/snare-3.mp3";
 
 const SnareSwitch = forwardRef((props, ref) => {
   const [play] = useSound(bassSound);
