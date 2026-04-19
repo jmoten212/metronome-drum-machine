@@ -10,8 +10,24 @@ function DrumMachine(props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const isPlayingRef = useRef(false);
   const timerRef = useRef(null);
+  const audioContextRef = useRef(null);
   const TEMPO_MS = 250;
   const SEQUENCE_LENGTH = 16;
+
+  const resumeAudioContext = async () => {
+    if (audioContextRef.current) return;
+
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      audioContextRef.current = new AudioContext();
+
+      if (audioContextRef.current.state === 'suspended') {
+        await audioContextRef.current.resume();
+      }
+    } catch (error) {
+      console.warn('Audio context resumption failed:', error);
+    }
+  };
 
   const playLoop = () => {
     let index = 0;
@@ -40,7 +56,7 @@ function DrumMachine(props) {
     step();
   };
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
     if (isPlayingRef.current) {
       isPlayingRef.current = false;
       setIsPlaying(false);
@@ -48,6 +64,9 @@ function DrumMachine(props) {
       timerRef.current = null;
       return;
     }
+
+    // Resume audio context on mobile browsers
+    await resumeAudioContext();
 
     isPlayingRef.current = true;
     setIsPlaying(true);
