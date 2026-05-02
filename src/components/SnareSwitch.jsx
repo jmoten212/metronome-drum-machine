@@ -22,7 +22,7 @@ const SnareSwitch = forwardRef((props, ref) => {
     <label
       ref={buttonRef}
       id={`${props.name}-${props.index}`}
-      className={`switchButton ${isOn ? 'on' : 'off'}`}
+      className={`switch-button ${isOn ? 'on' : 'off'}`}
       onClick={handleClick}
     >
       <input type="checkbox" checked={isOn} readOnly />
@@ -31,9 +31,3 @@ const SnareSwitch = forwardRef((props, ref) => {
 });
 
 export default SnareSwitch;
-
-// button needs to switch on/off for PlayDrumSequence + visual of on/off
-// if on, PlayDrumSequence plays it
-// if off, nothing
-
-// useState for ifChecked on form - play sound, else...

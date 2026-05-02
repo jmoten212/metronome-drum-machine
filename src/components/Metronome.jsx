@@ -63,7 +63,7 @@ const Metronome = () => {
         />
         <p>208</p>
       </div>
-      <button className="startButton" onClick={startStop}>
+      <button className="start-button" onClick={startStop}>
         {isPlaying ? "Stop" : "Start"}
       </button>
     </div>

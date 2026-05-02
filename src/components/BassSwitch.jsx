@@ -22,7 +22,7 @@ const BassSwitch = forwardRef((props, ref) => {
     <label
       ref={buttonRef}
       id={`${props.name}-${props.index}`}
-      className={`switchButton ${isOn ? 'on' : 'off'}`}
+      className={`switch-button ${isOn ? 'on' : 'off'}`}
       onClick={handleClick}
     >
       <input type="checkbox" checked={isOn} readOnly />

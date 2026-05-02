@@ -7,6 +7,7 @@ function DrumMachine(props) {
   const bassRefs = useRef([]);
   const snareRefs = useRef([]);
   const hiHatRefs = useRef([]);
+  const drumDomRefs = useRef([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const isPlayingRef = useRef(false);
   const timerRef = useRef(null);
@@ -65,7 +66,7 @@ function DrumMachine(props) {
       return;
     }
 
-    // Resume audio context on mobile browsers
+    // Resume audio context for mobile browsers
     await resumeAudioContext();
 
     isPlayingRef.current = true;
@@ -74,41 +75,41 @@ function DrumMachine(props) {
   };
 
   return (
-    <div className="drumMachine">
-      <button type="button" onClick={togglePlay} className="startButton">
+    <div className="drum-machine">
+      <button type="button" onClick={togglePlay} className="start-button">
         {isPlaying ? 'Stop' : 'Start'}
       </button>
-      <div className="drumRow">
+      <div className="drum-row">
         <h2>{props.bassName}</h2>
         {Array.from({ length: 16 }).map((_, index) => (
           <BassSwitch
             key={index}
             name="bassSwitch"
-            className="switchButton"
+            className="switch-button"
             index={index}
             ref={(el) => (bassRefs.current[index] = el)}
           />
         ))}
       </div>
-      <div className="drumRow">
+      <div className="drum-row">
         <h2>{props.snareName}</h2>
         {Array.from({ length: 16 }).map((_, index) => (
           <SnareSwitch
             key={index}
             name="snareSwitch"
-            className="switchButton"
+            className="switch-button"
             index={index}
             ref={(el) => (snareRefs.current[index] = el)}
           />
         ))}
       </div>
-      <div className="drumRow">
+      <div className="drum-row">
         <h2>{props.hiHatName}</h2>
         {Array.from({ length: 16 }).map((_, index) => (
           <HiHatSwitch
             key={index}
             name="hiHatSwitch"
-            className="switchButton"
+            className="switch-button"
             index={index}
             ref={(el) => (hiHatRefs.current[index] = el)}
           />
