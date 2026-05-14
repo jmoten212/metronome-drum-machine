@@ -1,5 +1,5 @@
 <h1>Metronome / Drum Machine</h1>
 
-Created a pretty simple React app that contains a metronome and a drum machine. The drum machine is still in progress, with a few features to figure out automated playing of the buttons in a particular time signature on loop to create a beat, and creating switch buttons for the different drums to be tuned on/off within the measure of the beat.
+Created a pretty simple React app with a metronome and a drum machine. This project is still a work in progress with more desired features to be added, like additional instruments and variable time signatures to change the speed of the beat.
 
 https://jmoten212.github.io/metronome-drum-machine/

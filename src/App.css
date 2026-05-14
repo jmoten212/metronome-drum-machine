@@ -81,6 +81,12 @@
   display: flex;
 }
 
+.git-icon {
+  max-width: 50px;
+  max-height: 50px;
+  margin-top: 100px;
+}
+
 /* --------- checkbox styling for switch "buttons" ---------- */
 
 input[type="checkbox"] {
