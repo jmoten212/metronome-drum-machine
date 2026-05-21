@@ -49,6 +49,7 @@
   color: #ebfaff;
   font-family: "Goldman", sans-serif;
   text-shadow: 2px 0 #da0463;
+  margin-bottom: 25px;
 }
 
 .bpm-slider {
@@ -81,13 +82,27 @@
   display: flex;
 }
 
+.repo-link {
+  margin: 100px auto 75px auto;
+}
+
+#gh-repo-link {
+  background-color: #333;
+}
+
 .git-icon {
   max-width: 50px;
   max-height: 50px;
-  margin-top: 100px;
 }
 
+.tooltip-text {
+  font-family: "Goldman", sans-serif;
+  font-weight: 500;
+}
+
+
 /* --------- checkbox styling for switch "buttons" ---------- */
+
 
 input[type="checkbox"] {
   /* Removes default styling */
