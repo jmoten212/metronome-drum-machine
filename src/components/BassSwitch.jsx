@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import useSound from "use-sound";
 import bassSound from "../assets/sounds/kick-bass.mp3";
 
-const BassSwitch = forwardRef((props, ref) => {
+const BassSwitch = forwardRef(({ isActive, ...props }, ref) => {
   const [play] = useSound(bassSound);
   const buttonRef = useRef(null);
   const [isOn, setIsOn] = useState(false);
@@ -22,7 +22,7 @@ const BassSwitch = forwardRef((props, ref) => {
     <label
       ref={buttonRef}
       id={`${props.name}-${props.index}`}
-      className={`switch-button ${isOn ? 'on' : 'off'}`}
+      className={`switch-button ${isOn ? 'on' : 'off'} ${isActive ? 'active-step' : ''}`}
       onClick={handleClick}
     >
       <input type="checkbox" checked={isOn} readOnly />

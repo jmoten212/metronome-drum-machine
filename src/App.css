@@ -25,7 +25,7 @@
   background-color: #ffffff;
   border-radius: 10px;
   padding: 5px;
-  max-width: 800px;
+  width: clamp(290px, 68vw, 800px);
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -34,7 +34,8 @@
 .drum-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  max-width: 770px;
   justify-content: space-evenly;
   align-items: center;
   margin: 10px;
@@ -44,12 +45,16 @@
   text-shadow: 3px 0 #deedf2;
 }
 
+.drum-row-title {
+  width: 125px;
+}
+
 .metronome {
   font-size: 1.5rem;
   color: #ebfaff;
   font-family: "Goldman", sans-serif;
   text-shadow: 2px 0 #da0463;
-  margin-bottom: 25px;
+  margin-bottom: 7vh;
 }
 
 .bpm-slider {
@@ -63,12 +68,19 @@
   font-size: 1rem;
 }
 
+.start-button-tempo-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 20px 0px 20px;
+}
+
 .start-button {
   cursor: pointer;
   border: none;
   font-family: "Goldman", sans-serif;
   padding: 5px 20px;
-  margin: 1rem 0rem 2rem;
+  /* margin: 1rem 0rem 2rem; */
   border-radius: 5px;
   background-color: #535c77;
   color: #ffffff;
@@ -77,13 +89,11 @@
   }
 }
 
-.drum-machine .start-button{
-  margin: 20px 0px 0px 20px;
-  display: flex;
-}
-
 .repo-link {
-  margin: 100px auto 75px auto;
+  display: flex;
+  height: 40vh;
+  justify-content: center;
+  align-items: center;
 }
 
 #gh-repo-link {
@@ -98,6 +108,27 @@
 .tooltip-text {
   font-family: "Goldman", sans-serif;
   font-weight: 500;
+}
+
+.active-step {
+  outline: 4px solid #dcdcdc;
+  outline-offset: 2px;
+}
+
+label {
+  font-family: "Goldman", sans-serif;
+  font-weight: 500;
+  color: #404e77;
+}
+
+select {
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+  color: #404e77;
+  border-color: #c6c5c5;
+  border-radius: 5px;
+  padding: 3px;
+  cursor: pointer;
 }
 
 

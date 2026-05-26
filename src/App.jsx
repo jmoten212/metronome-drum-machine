@@ -9,7 +9,7 @@ function App() {
     <div>
       <h1>Drum Machine 🎛️</h1>
       <Metronome />
-      <DrumMachine bassName="BASS DRUM" snareName="SNARE DRUM" hiHatName="HI HAT" />
+      <DrumMachine bassName="BASS" snareName="SNARE" hiHatName="HI HAT" />
       <RepoLink />
     </div>
   )

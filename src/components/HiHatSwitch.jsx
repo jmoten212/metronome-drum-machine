@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import useSound from "use-sound";
 import hiHatSound from "../assets/sounds/hi-hat.mp3";
 
-const HiHatSwitch = forwardRef((props, ref) => {
+const HiHatSwitch = forwardRef(({ isActive, ...props }, ref) => {
   const [play] = useSound(hiHatSound);
   const buttonRef = useRef(null);
   const [isOn, setIsOn] = useState(false);
@@ -22,7 +22,7 @@ const HiHatSwitch = forwardRef((props, ref) => {
     <label
       ref={buttonRef}
       id={`${props.name}-${props.index}`}
-      className={`switch-button ${isOn ? 'on' : 'off'}`}
+      className={`switch-button ${isOn ? 'on' : 'off'} ${isActive ? 'active-step' : ''}`}
       onClick={handleClick}
     >
       <input type="checkbox" checked={isOn} readOnly />
