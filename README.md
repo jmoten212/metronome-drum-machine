@@ -24,7 +24,7 @@ Created a pretty simple React app with a metronome and a drum machine
 
 <h3>Future Improvements</h3>
 <ul>
-  <li>Add unit and integration tests</li>
+  <li>Add more unit and integration tests</li>
   <li>Add more instruments and variable time signatures to change the rhythm of the beat</li>
   <li>Add instrument components that can be added and subtracted interchangeably with their own button rows</li>
   <li>Improve accessibility</li>
