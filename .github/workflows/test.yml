@@ -1,4 +1,4 @@
-name: Unit tests
+name: Component tests
 
 on:
   push:
@@ -23,5 +23,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run unit tests
+      - name: Run component tests
         run: npm test
